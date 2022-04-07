@@ -359,14 +359,19 @@ open # open a file</code></pre>
 <p>Every directory should have a <code>README</code> file in it, so let's make one of those</p>
 <pre class="bash"><code>touch README.md</code></pre>
 </div>
-<div id="retrieving-remote-files" class="section level3">
-<h3>Retrieving remote files</h3>
+<div id="retrieving-remote-files-2" class="section level3">
+<h3>Retrieving remote files 2</h3>
 <p>In the next section, we'll be working with a Markdown template, so let’s download that template.</p>
-<p>url: <code>https://</code></p>
-<pre class="bash"><code>curl https:// -o 20220427_MD-Template_MVD.md</code></pre>
+<p>url: <code>https://vdunbar.github.io/ds-introduction/files/academic-cv_template.md</code></p>
+<pre class="bash"><code>curl https://vdunbar.github.io/ds-introduction/files/academic-cv_template.md -o 20220427_MD-Template_MVD.md</code></pre>
 <div class="note">
 <p>We use the <code>o</code>–for output–flag to name the file to put the download into.</p>
 </div>
+<p>We'll also be working with at least one image, so we'll make a directory to hold images and then download an image</p>
+<p>url: <code>https://raw.githubusercontent.com/vdunbar/ds-introduction/main/images/twitter.png</code></p>
+<pre class="bash"><code>mkdir images
+
+curl https://raw.githubusercontent.com/vdunbar/ds-introduction/main/images/twitter.png -o images/twitter.png</code></pre>
 <p>We now have the basics lined up; we can move around our computer without a mouse, and we've created some placeholders documents for the content we're about to start building out.</p>
 </div>
 </div>

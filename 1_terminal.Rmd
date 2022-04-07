@@ -144,7 +144,7 @@ Every directory should have a `README` file in it, so let\'s make one of those
 touch README.md
 ```
 
-### Retrieving remote files
+### Retrieving remote files 2
 
 In the next section, we\'ll be working with a Markdown template, so let's download that template.
 
