@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Terminal</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Digital Scholarship: An Introduction</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="1_terminal.html">Terminal</a>
+</li>
+<li>
+  <a href="2_markdown.html">Markdown</a>
+</li>
+<li>
+  <a href="3_github-pages.html">GitHub Pages</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Abandoning the mouse</h1>
+
+</div>
+
+
+<p>Why learn to use the command line?</p>
+<ul>
+<li>For many, it will be something you encounter willingly or unwillingly as part of academic life at some point</li>
+<li>It's fast for those tasks that are repetitive, like bulk renaming or moving of files.</li>
+<li>You can talk to the person who works for IT at your next party</li>
+</ul>
+<div id="working-on-a-server" class="section level2">
+<h2>Working on a server</h2>
+<p>There was a time when we couldn't point and click. In fact, in many disciplines, it remains imperative that users know how to navigate an operating system without a graphical user interface and a mouse.</p>
+<p>Anyone who works with Advanced Research Computing and is asking for server space to deploy a web site or process data will be provided with a an operating system that shares resources with other users. So, there's no physical computer, no monitor, no keyboard, no mouse. Not in the way that we're used to. Just a bit of space on a server reserved for them that they access from their local machine over a local network or Internet connection.</p>
+<p>Additionally, when this operating system using shared resources is spun up, it will likely be a Linux distribution, like RedHat, CentOS, or Ubuntu. So having the skills to move around these systems is important.</p>
+</div>
+<div id="making-this-faster" class="section level2">
+<h2>Making this faster</h2>
+<p>The command line isn't just useful for navigating a computer when we don't have a graphical, interactive view of what's going on. Whenever you find yourself doing something over and over with your mouse and you think "there must be a faster way of doing this", odds are there is. If what you're doing involves moving files around, joining files together, making the same small edit to a bunch of files etc, Unix and Linux command line tools can save you much time and many headaches.</p>
+</div>
+<div id="the-unix-command-line" class="section level2">
+<h2>The Unix Command line</h2>
+<p>We (and the good people of the internet) will be throwing around a lot of jargon, so we'll start with a few definitions.</p>
+<div id="terminal-console-command-line-shell" class="section level3">
+<h3>Terminal, Console, Command line, Shell</h3>
+<p>What's the difference?</p>
+<p>For all intents and purposes in daily conversation, they're synonymous. For the more nuanced participant, however, and so we can sound a bit smarter at that next party where we’ve found ourselves at the punch bowl with someone in IT, <code>terminal</code> refers to the text based environment that sits between you–the user–and your computer–the hardware. It's more conceptual than it is real. A <code>console</code> is the physical manifestation of a <code>terminal</code>. The <code>command line</code> simply refers to the space to the right of your command prompt when you're in your console; ie the space available for you to type. A <code>shell</code> is an application that interprets what you type into your <code>console's</code> <code>command line</code> and passes this along to the relevant application that will handle what you've typed.</p>
+<p>So, you <strong>work</strong> on a <code>console</code>, where you <strong>type</strong> on the <code>command line</code>, and what you type is <strong>interpreted</strong> by the <code>shell</code></p>
+</div>
+<div id="what-is-bash" class="section level3">
+<h3>What is Bash?</h3>
+<p>Bash stands for Bourne Again Shell. Bash is one <code>shell</code> application. There are others. Mac OS defaults to <code>zsh</code> the Z shell. They both do the same thing; they interpret what you type in the <code>command line</code>. It's kind of like choosing Zotero over Mendeley, or LibreOffice over Microsoft Word. Different applications, same basic job. For what we're doing today, it won't make a difference which one your computer defaults to.</p>
+</div>
+</div>
+<div id="summary-of-commands" class="section level2">
+<h2>Summary of commands</h2>
+<p>We'll review using the following commands today…</p>
+<pre class="bash"><code>pwd # print working directory
+ls # list the files in a directory
+cd # change directories
+mkdir # make a new directory
+touch # create a file
+mv # move or rename a file
+cat # print out the contents of a file
+less # paginate through the outputs of cat
+curl # access files on the web
+open # open a file</code></pre>
+</div>
+<div id="putting-it-into-practice" class="section level2">
+<h2>Putting it into Practice</h2>
+<p>Find your console…then</p>
+<div id="basics-of-navigation" class="section level3">
+<h3>Basics of navigation</h3>
+<p>Find out where you are:</p>
+<pre class="bash"><code>pwd</code></pre>
+<p>Get ourselves to the same place in our respective operating system</p>
+<pre class="bash"><code>cd ~/Desktop</code></pre>
+<p>Note: the <code>~</code> returns your home directory. This is generally your user directory by default.</p>
+<p>Assuming you have some files sitting on your desktop, list those</p>
+<pre class="bash"><code>ls</code></pre>
+<p>Note: all command line applications include <code>flags</code>. These provide access to additional options. They are pre-pended with a <code>-</code>.</p>
+<p>List the files again, but with a bit more information using the <code>l</code>–for long format–flag.</p>
+<pre class="bash"><code>ls -l</code></pre>
+<p>And just for fun, the <code>h</code>–for human readable–flag as well.</p>
+<pre class="bash"><code>ls -lh</code></pre>
+</div>
+<div id="creating-new-files" class="section level3">
+<h3>Creating new files</h3>
+<p>Create a new folder to work in on your Desktop (which is where we should all be at the moment.)</p>
+<pre class="bash"><code>mkdir 2022_DHSI-Conference</code></pre>
+<p>Note: Once you create this folder, open it beside your console window and you'll be able to see it updated as you work.</p>
+<p>Put yourself in that folder</p>
+<pre class="bash"><code>cd 2022_DHSI-Conference</code></pre>
+<p>Create a new file that will ultimately become our webpage.</p>
+<pre class="bash"><code>touch myNewFile.md</code></pre>
+<p><strong>File Naming</strong></p>
+<p>Names should be meaningful, they should describe the project and the contents of the file. They should have a system for tracking through time, whether with revision numbers or dates–sometimes dates are more relevant, sometimes revision numbers are more relevant. When dates are used, they should be in the format <strong>yyyymmdd</strong>. They should contain no special characters, this includes spaces. Parts of file name–dates, affiliated project, description–should be joined with underscores <code>_</code>, while multiple terms within a part can be in <code>CamelBack</code> or separated with dashes <code>-</code>.</p>
+<p>File naming diatribe done, rename the file we just created to give it a meaningful name</p>
+<pre class="bash"><code>mv myNewFile.md 20220323_DHSI-Poster_Web-Materials.md</code></pre>
+<p>Note: <code>mv</code> both moves files from one location to another and renames files, which is akin to moving.</p>
+<p>Every directory should have a <code>README</code> file in it, so let's make one of those</p>
+<pre class="bash"><code>touch README.md</code></pre>
+</div>
+<div id="retrieving-remote-files" class="section level3">
+<h3>Retrieving remote files</h3>
+<p>We still need to get our poster template from UBC IT.</p>
+<p><code>https://it.ubc.ca/sites/ubcit.ubc.ca/files/ubc_research_poster_template.ppt</code></p>
+<pre class="bash"><code>curl https://it.ubc.ca/sites/ubcit.ubc.ca/files/ubc_research_poster_template.ppt -o 20220323_DHSI-Poster.ppt</code></pre>
+<p>Note: we use the <code>o</code>–for output–flag to name the file to put the download into.</p>
+<p>We now have the basics lined up; we can move around our computer without a mouse, and we've created some placeholders documents for the content we're about to start building out.</p>
+</div>
+</div>
+<div id="deeper-dive" class="section level2">
+<h2>Deeper Dive</h2>
+<div id="revisiting-speed" class="section level3">
+<h3>Revisiting Speed</h3>
+<p>Many things we do on the computer are tedious. Whenever we're doing something that is tedious, we should be thinking to ourselves, there's got to be a better way of doing this. And there will be. It's just a matter of knowing who or what to ask.</p>
+</div>
+<div id="an-example" class="section level3">
+<h3>An example</h3>
+<p>We may well come upon a time when we need to move, delete, or rename a large number of files associated with a project. Let's touch down a list of a series of files:</p>
+<pre class="bash"><code>touch this.tmp that.tmp who.tmp why.tmp where.tmp what.tmp</code></pre>
+<p><strong>File Extensions</strong></p>
+<p>File extensions are simply another part of a file name that helps us and our operating system know what application it is that we expect to use to open a file. We can change file extensions and all we change is the file name, we don't change anything intrinsic about the file itself. <code>.tmp</code> is a common file extension used for plain text files that are temporary in nature and meant to be deleted frequently, or at least not held onto for any length of time.</p>
+<p>Now, we might realize that we meant to put these in their own directory. Let's make that directory and move everything over, move ourselves over and then investigate things.</p>
+<pre class="bash"><code>mkdir tmp
+mv *.tmp tmp/
+cd tmp
+ls</code></pre>
+<p>Note: the <code>*</code> is a wildcard and tells <code>mv</code>, move anything that ends in <code>.tmp</code></p>
+<p>Not a huge time saver, but things get better. We really should have provided these files with a bit more context in their file names, like the project that they're affiliated with. We could rename each individually, or harness the power of the command line…</p>
+<pre class="bash"><code># for every instance of a file that ends in .tmp;
+# do the following: rename that file so that is pre-pended by &#39;My-Research-Project&#39;
+# stop doing things
+for i in *.tmp; do mv $i 20220323_DHSI-Poster_$i; done</code></pre>
+<p>We can also now bulk delete those files</p>
+<pre class="bash"><code>rm *.tmp</code></pre>
+<p>And do a final clean up, moving ourselves up one level and deleting our <code>tmp</code> folder</p>
+<pre class="bash"><code>cd ..
+rm -R tmp</code></pre>
+<p>Note: Every folder has in it two place holders, one labeled <code>.</code> and the other labeled <code>..</code>. <code>.</code> refers to the current directory, while <code>..</code> refers to the directory one level up in the hierarchy. To see these listed, you can call <code>ls</code> with the <code>a</code> flag.</p>
+<p>Next, we look at Markdown…</p>
+</div>
+</div>
+
+<div id="footer">
+    <hr />
+    <p>Built and rendered curtousy of <a href="https://rmarkdown.rstudio.com/index.html" target ="blank">RMarkdown from RStudio</a></p>
+    <p>View source on <a>GitHub</a></p>
+    <p>This website is part of a larger series of learning objects. <a>Visit the OSF page</a> for details.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

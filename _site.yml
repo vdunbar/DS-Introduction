@@ -1,0 +1,18 @@
+name: "Digital Scholarship: An Introduction"
+output_dir: "docs"
+navbar:
+  title: "Digital Scholarship: An Introduction"
+  left:
+    - text: "Terminal"
+      href: 1_terminal.html
+    - text: "Markdown"
+      href: 2_markdown.html
+    - text: "GitHub Pages"
+      href: 3_github-pages.html
+output:
+  html_document:
+    theme: flatly
+    highlight: textmate
+    css: styles.css
+    includes:
+      after_body: footer.html

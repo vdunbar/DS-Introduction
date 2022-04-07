@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>GitHub Pages</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Digital Scholarship: An Introduction</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="1_terminal.html">Terminal</a>
+</li>
+<li>
+  <a href="2_markdown.html">Markdown</a>
+</li>
+<li>
+  <a href="3_github-pages.html">GitHub Pages</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">GitHub Pages</h1>
+
+</div>
+
+
+<p>You have a Markdown file with information to share and need an inexpensive and reliable place to publish it. <a href="https://github.com/">GitHub</a> is a free and widely trusted online platform that can be used to store files and folders, to edit and track changes to the files, and to publish simple websites from Markdown content.</p>
+<div id="git-and-version-control" class="section level2">
+<h2>Git and version control</h2>
+<p>GitHub is designed for sharing <em>Git repositories</em>, collections of files that are tracked using version control software called Git. You don’t need to install or learn Git to publish files on GitHub, but it’s helpful to know that the structure, terminology, and workflows in GitHub are derived from Git.</p>
+<p>Git is open source software that tracks changes made to a group of files. Each group of tracked files is stored in a <em>repository</em>. Git takes periodic snapshots of the tracked files (these snapshots are called <em>commits</em>) and saves them in the repository to keep a record of changes, when they were made, and by whom.</p>
+<div class="figure">
+<img src="images/git_process.svg" alt="" />
+<p class="caption">Git workflow</p>
+</div>
+<div id="why-use-version-control" class="section level3">
+<h3>Why use version control</h3>
+<p>It takes some discipline to learn and make use of version control but there are many benefits:</p>
+<ul>
+<li><strong>Collaboration</strong> - Version control helps teams work collaboratively on same set of documents without interfering with each other.</li>
+<li><strong>Versioning</strong> - It provides a thorough log of changes to tracked files without creating multiple copies, making it easier to identify the most current version.</li>
+<li><strong>Rolling back</strong> - Made a mistake? Version control lets you review and undo changes, reverting to previous stages in the document’s history. This can be useful when changes to your files introduce unforeseen problems.</li>
+<li><strong>Backup</strong> - While not intended primarily as a backup solution, version control systems make it easy to keep syncronized copies of your files in multiple locations.</li>
+</ul>
+</div>
+</div>
+<div id="github-for-publishing" class="section level2">
+<h2>GitHub for publishing</h2>
+<p>GitHub is a website for hosting and sharing Git repositories. It is designed to <em>complement</em> a local installation of Git software, but it can also be used on its own in a web browser. In this introductory workshop we will use GitHub in a browser only, but for larger projects you may wish to lean more about Git as well. Integrating GitHub with Git allows you to edit files on your own computer with your preferred text editing tools, then periodically synchronize them with a copy of the repository in GitHub. UBC Library’s <a href="https://ubc-library-rc.github.io/intro-git/">Introduction to Git and GitHub</a> workshop is one way to learn more about these tools (see upcoming <a href="https://researchcommons.library.ubc.ca/workshops/">workshop dates</a>).</p>
+<p>GitHub repositories can also be published as websites. In the steps below we will create a simple repository, add a Markdown file, then publish a web version of the file using <em>GitHub Pages</em>.</p>
+<div id="create-a-repository" class="section level3">
+<h3>Create a repository</h3>
+<p>The first step is to create a GitHub repository for the files we want to publish. Repositories can be Public (visible to anyone) or Private (visible only to you and to GitHub users you allow access). When using free GitHub accounts only public repositories can be published as websites.</p>
+<ol style="list-style-type: decimal">
+<li><p>Sign in to <a href="https://github.com">GitHub</a></p></li>
+<li><p>In the top right corner, click the <em>+</em> icon and select <em>New Repository</em></p>
+<div class="figure">
+<img src="images/new_repository.png" alt="" />
+<p class="caption">new repository menu</p>
+</div></li>
+<li><p>On the <em>Create a new repository</em> page</p>
+<ul>
+<li>give your repository a name and optional description</li>
+<li>leave it as <em>Public</em> (required if publishing as webpage)</li>
+<li>select <em>Add a README file</em></li>
+<li>click <em>Create repository</em></li>
+</ul></li>
+</ol>
+<p>Though not mandatory, choosing a license is an important part of openly sharing your creative work online. For help selecting an appropriate license see <a href="https://choosealicense.com/" class="uri">https://choosealicense.com/</a>.</p>
+<p>After you click <em>Create repository</em> you’ll see your new repository page:</p>
+<div class="figure">
+<img src="images/github_repo_page.png" alt="" />
+<p class="caption">GitHub repository view</p>
+</div>
+<p>The numbers correspond to a few key elements of the GitHub repository page:</p>
+<ol style="list-style-type: decimal">
+<li>A list of files and folders in your repository. In this case there is only one file, the README.md Markdown file that GitHub added when we created the repository.</li>
+<li>A representation of the contents of the README file. Editing the README file will make it easy for people to understand what your repository contains when they visit it in GitHub.</li>
+<li>A button to edit the file that’s currently displayed.</li>
+<li>A header with information about the most recent changes to your repository. Changes made to your files in GitHub are referred to as <em>commits</em> (the term comes from Git). Each time you save a file in GitHub, it takes a snapshot of the changes and <em>commits</em> that snapshot to the repository as record of the changes.</li>
+</ol>
+</div>
+<div id="upload-file-to-the-repository" class="section level3">
+<h3>Upload file to the repository</h3>
+<p>Upload the Markdown file you created earlier to your new repository.</p>
+<ol style="list-style-type: decimal">
+<li><p>Click the <em>Add file</em> button and select <em>Upload files</em></p>
+<div class="figure">
+<img src="images/upload_file.png" alt="" />
+<p class="caption">upload file</p>
+</div></li>
+<li><p>Drag or select your Markdown file.</p></li>
+<li><p>Add a note to describe your <em>commit</em> (i.e. your change to the repository) and click <em>Commit changes</em>.</p></li>
+</ol>
+<p>Throughout the GitHub interface you will see references to <em>branches</em>. A newly created repository has only one branch called <em>main</em>. A single branch is sufficient for many projects, but if you’re collaborating with others on the same repository branches can help organize your group’s work.</p>
+</div>
+<div id="publish-the-file-with-github-pages" class="section level3">
+<h3>Publish the file with GitHub Pages</h3>
+<p>GitHub Pages is a feature that generates a static website from the files in your repository. Each Markdown file will become a page in the website.</p>
+<ol style="list-style-type: decimal">
+<li><p>On your repository page, click <em>Settings</em> (far right in the horizontal menu)</p></li>
+<li><p>On the settings page, choose <em>Pages</em> from the menu on the left side of the screen.</p></li>
+<li><p>In the <em>Source</em> section of the GitHub Pages settings, click the <em>None</em> button to change the source to <em>main</em> (the main branch of your repository)</p>
+<div class="figure">
+<img src="images/select_branch.png" alt="" />
+<p class="caption">select source branch</p>
+</div></li>
+<li><p>Click <em>Save</em></p></li>
+</ol>
+<p>A message will give you the URL for your new repository. It will take a few minutes for the site to be ready. Copy or bookmark this URL so you can use it later.</p>
+<p>Sites built with GitHub pages are simple by default but can be customized with themes and enhanced with navigation and other elements. Most enhancements involve adding configuration files to the repository. If you’d like to explore these features it is helpful to know that GitHub Pages uses <em>Jekyll</em> software to generate its websites. For more information see <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll">Adding a theme to your GitHup Pages site using Jekyll</a>.</p>
+</div>
+<div id="find-your-published-markdown-file" class="section level3">
+<h3>Find your published Markdown file</h3>
+<p>By default the homepage for your newly published site will be the README file. To access view the web version of your Markdown file you have two options:</p>
+<ol style="list-style-type: decimal">
+<li>Rename your Markdown file to <em>index.md</em>. If an <em>index.md</em> file is present GitHub Pages will always use it as the landing page.</li>
+<li>Add your filename to the end of the URL string, replacing <em>md</em> with <em>html</em>. For example, if your file is called <em>myfile.md</em> your new URL would end in <em>myfile.html</em>.</li>
+</ol>
+</div>
+</div>
+<div id="create-a-qr-code" class="section level2">
+<h2>Create a QR code</h2>
+<p>Visit <a href="https://www.qrcode-monkey.com" class="uri">https://www.qrcode-monkey.com</a> to create a QR code with the URL of your published Markdown file, then copy the QR code into your poster.</p>
+</div>
+
+<div id="footer">
+    <hr />
+    <p>Built and rendered curtousy of <a href="https://rmarkdown.rstudio.com/index.html" target ="blank">RMarkdown from RStudio</a></p>
+    <p>View source on <a>GitHub</a></p>
+    <p>This website is part of a larger series of learning objects. <a>Visit the OSF page</a> for details.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

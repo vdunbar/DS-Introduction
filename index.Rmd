@@ -1,0 +1,50 @@
+---
+title: "Digital Scholarship: An Introduction"
+pagetitle: "Digital Scholarship: An Introduction"
+---
+
+```{r echo=FALSE}
+knitr::read_chunk("./scripts/workshop_files.R")
+```
+
+## Description
+
+This workshop will briefly introduce:
+
+* navigating using a terminal environment.
+* basic markdown syntax and document structure.
+* publishing markdown documents with GitHub pages.
+
+## Objectives
+
+* Introduce a set of computational tools used in academia for research and scholarly communication.
+* Emphasize the role of these tools in transparency and reproducibility.
+* Explore approaches to solving issues related to research and scholarly communication that leverage computational approaches.
+
+## Outcomes
+
+* Navigate a file system with the command line.
+* Author a basic document with Markdown syntax.
+* Understand the role of plain text authoring in the context of research and scholarly communication.
+* Publish a Markdown document to the web using GitHub Pages.
+
+## What you will need
+
+* A computer. Neither a tablet nor cell phone will suffice.
+
+## Pre-load
+
+* Set up a [GitHub account](https://github.com/)
+* Install [Atom](https://atom.io/)
+* Set up a terminal
+     - Mac and Linux: bash or zsh terminal apps are already installed
+     - Windows: install _Windows Subsystem for Linux_ (WSL). Follow the instructions in the _Install_ section of <https://docs.microsoft.com/en-us/windows/wsl/install>. A bash prompt will open after installation is complete. To access bash again later open Command Prompt (Click Start, enter `cmd`, select Command Prompt), type `bash`, then hit enter.
+    
+<div class = "note">
+If you see the error "Windows Subsystem for Linux has no distributions", run the command `wsl --install -d Ubuntu` in Command Prompt, wait for the Ubuntu distribution to download and install, then try again.
+</div>
+
+## Files
+
+```{r loadfiles, results='asis', echo=FALSE}
+```

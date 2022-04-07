@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Markdown</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Digital Scholarship: An Introduction</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="1_terminal.html">Terminal</a>
+</li>
+<li>
+  <a href="2_markdown.html">Markdown</a>
+</li>
+<li>
+  <a href="3_github-pages.html">GitHub Pages</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Markdown</h1>
+
+</div>
+
+
+<div id="the-ethos-of-markdown" class="section level2">
+<h2>The Ethos of Markdown</h2>
+<p>There are a couple of things that make markdown stand out as a tool for authoring documents. The first is that it is plain text. The second is that separates document structure from document styling. This way, we focus on what we want to write, and when that is done, we provide styling or aesthetics.</p>
+<div id="plain-text" class="section level3">
+<h3>Plain Text</h3>
+<p>Plain text files are files that contain only text characters–no formatting, no images etc. Plain text also usually means that our text characters are encoded as ASCII or UTF-8. Using 0s and 1s, various combinations of these 0s and 1s represent certain characters according to these two standards. For example, the following byte <code>01001101</code> is ASCII coding for the letter <code>M</code>. ASCII has been around since the 1960s. ASCII can represent 128 characters. UTF-8 can represent many, many more characters, but is backwards compatible with ASCII. UTF-8 is the encoding used on the web.</p>
+<p>As ASCII is a kind of benchmark, this in effect means that any ASCII plain text file can be opened by any text editing program on any computer on any operating system. Even if that file was written 40 years ago. Or will need to be opened in another 20 years.</p>
+<p>This is quite different from say a document written in Microsoft Word, which only renders perfectly in Word and only in versions of Word that support that particular document's formatting. This kind of rot, or inability to access content, has plagued authors for decades, especially when there was a lot more competition among word processors.</p>
+<p>If we were to try and open a Word document in a text editor, we'd see something like this</p>
+<p><img src="images/word-in-text.png" /></p>
+</div>
+<div id="structure-vs-styling" class="section level3">
+<h3>Structure vs Styling</h3>
+<p>When an authoring environment separates out structure from styling, it allows us to focus on each independently of the other, encouraging the writer to focus first and foremost on what they want to say and then subsequently on how this will be formatted.</p>
+<p>Editors like Microsoft Word of LibreOffice wed these together so that styling - fonts, colours, spacing around elements, page breaks etc - are part of the writing process.</p>
+<p>Markdown encourages the writer to think only about document structure and prose while writing - that is, should this be a heading, subheading, list, table etc - and to look at how these elements are formatted once writing is complete - 1st level headers should 16pt Helvetica bold, tables should span the full width of the page, list items should be preceded by bullets not dashes etc.</p>
+</div>
+</div>
+<div id="how-markdown-works" class="section level2">
+<h2>How Markdown Works</h2>
+<ol style="list-style-type: decimal">
+<li>You write your content, providing the structure and the prose in plain text.</li>
+<li>Another program adds style to your content and encodes it in a particular format, whether that be for the web, as a pdf, or a Word document.</li>
+</ol>
+<p>Your working copy is your plain text markdown document. Your distribution copy is the the stylized, formatted version.</p>
+<p><img src="images/markdown-translation.png" /></p>
+</div>
+<div id="a-brief-history-of-markdown" class="section level2">
+<h2>A (Brief) History of Markdown</h2>
+<p>Markdown was conceived to support web authoring. <code>html</code>, like markdown, is plain text, but more cumbersome to write. If you right click in your web browser and select "View Page Source" or the equivalent, you’ll see the html markup that was written. Your web browser takes that marked up content and gives it style, formatting it so that it's (hopefully) enjoyable to interact with.</p>
+<p>Markdown is a very quick way to author documents. It's formatting options are limited by its original intent to author web based prose. Web based prose was originally designed to support the dissemination of academic research. So Markdown is a perfect tool for authoring in academia.</p>
+</div>
+<div id="markdown-basics" class="section level2">
+<h2>Markdown Basics</h2>
+<p>We'll cover the following today</p>
+<ul>
+<li>headings</li>
+<li>lists</li>
+<li>links</li>
+<li>images</li>
+<li>tables</li>
+</ul>
+<p>But there's more that you can do with Markdown, and you see a full guide here: <a href="https://www.markdownguide.org/basic-syntax/">https://www.markdownguide.org/basic-syntax/</a></p>
+<p>Let's explore writing in Markdown…</p>
+<p>Back to the console</p>
+<pre class="bash"><code>open -a Atom 20210611_DHSI-Poster_Web-Materials.md # Mac
+
+Atom 20210611_DHSI-Poster_Web-Materials.md # Windows</code></pre>
+<p>Review a sample of what we’ll create here: <a href="https://csc-ubc-okanagan.github.io/DS-Introduction/academic-cv.html">https://csc-ubc-okanagan.github.io/DS-Introduction/academic-cv.html</a></p>
+<p>See the raw markdown here: <a href="https://csc-ubc-okanagan.github.io/DS-Introduction/academic-cv-md.html">https://csc-ubc-okanagan.github.io/DS-Introduction/academic-cv-md.html</a></p>
+</div>
+<div id="markdown-cheatsheet" class="section level2">
+<h2>Markdown cheatsheet</h2>
+<p><a href="#new-lines-and-paragraphs">New lines and paragraphs</a><br />
+<a href="#headings">Headings</a><br />
+<a href="#lists">Lists</a><br />
+<a href="#links">Links</a><br />
+<a href="#images">Images</a><br />
+<a href="#tables">Tables</a></p>
+<div id="new-lines-and-paragraphs" class="section level3">
+<h3>New lines and paragraphs</h3>
+<p><strong>New lines</strong> are demarcated with two spaces, <code></code>, at the end of the preceding line.</p>
+<pre><code>This is line 1  
+This is line 2</code></pre>
+<p>This is line 1<br />
+This is line 2</p>
+<p><strong>Paragraphs</strong> are demarcated with two carriage returns; the <code>Enter</code> key</p>
+<pre><code>This is paragraph 1.
+
+This is paragraph 2.</code></pre>
+<p>This is paragraph 1.</p>
+<p>This is paragraph 2.</p>
+</div>
+<div id="headings" class="section level3">
+<h3>Headings</h3>
+<p>There is generally support for six levels of headings, each demarcated by a series of hashtags, <code>#</code>.</p>
+<pre><code># First level header</code></pre>
+</div>
+</div>
+<div id="first-level-header" class="section level1">
+<h1>First level header</h1>
+<pre><code>## Second level header</code></pre>
+<div id="second-level-header" class="section level2">
+<h2>Second level header</h2>
+<pre><code>### Third level header</code></pre>
+<div id="third-level-header" class="section level3">
+<h3>Third level header</h3>
+<p>etc…</p>
+</div>
+<div id="lists" class="section level3">
+<h3>Lists</h3>
+<p>List are either ordered or unordered.</p>
+<p><strong>Unordered</strong> lists use either <code>*</code> or <code>-</code></p>
+<pre><code>* apples  
+* bananas  
+* oranges</code></pre>
+<ul>
+<li>apples</li>
+<li>bananas</li>
+<li>oranges</li>
+</ul>
+</div>
+<div id="links" class="section level3">
+<h3>Links</h3>
+<p>Links are defined by two sets of parentheses, one square, one round, <code>[]()</code>. The text for the link goes in the <code>[]</code>, and the url goes in the <code>()</code></p>
+<pre><code>[Follow this link!](https://www.somethingspecial.ca)</code></pre>
+<p><a href="https://www.somethingspecial.ca">Follow this link!</a></p>
+</div>
+<div id="images" class="section level3">
+<h3>Images</h3>
+<p>Images are just a special kind of link. To differentiate them from hyperlinks, they are preceded by an exclamation mark <code>!</code>. The alternative text goes in the <code>[]</code>, and the image source in the <code>()</code>.</p>
+<pre><code>![Twitter Logo](images/twitter.png)</code></pre>
+<div class="figure">
+<img src="images/twitter.png" alt="" />
+<p class="caption">Twitter Logo</p>
+</div>
+</div>
+<div id="tables" class="section level3">
+<h3>Tables</h3>
+<p>Tables use a series of pipes <code>|</code> to delineate columns and line breaks to delineate rows. The header is separated from the content with a series of dashes (minimum 3) <code>---</code> and a set of colons <code>:</code> dictates alignment</p>
+<pre><code>| Author | Title | Date |
+| :--- | :--- | :---| # left aligned
+| Tadmor B et al | Camel bite: risk factors and management | 1992 |
+| Kain R et al | Camel bite: An uncommon mode of maxillofacial injury, its mechanism and fatality: Case series and review of literature | 2015 |</code></pre>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Author</th>
+<th align="left">Title</th>
+<th align="left">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Tadmor B et al</td>
+<td align="left">Camel bite: risk factors and management</td>
+<td align="left">1992</td>
+</tr>
+<tr class="even">
+<td align="left">Kain R et al</td>
+<td align="left">Camel bite: An uncommon mode of maxillofacial injury, its mechanism and fatality: Case series and review of literature</td>
+<td align="left">2015</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="footer">
+    <hr />
+    <p>Built and rendered curtousy of <a href="https://rmarkdown.rstudio.com/index.html" target ="blank">RMarkdown from RStudio</a></p>
+    <p>View source on <a>GitHub</a></p>
+    <p>This website is part of a larger series of learning objects. <a>Visit the OSF page</a> for details.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
