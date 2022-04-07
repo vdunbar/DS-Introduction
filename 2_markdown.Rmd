@@ -2,11 +2,9 @@
 title: "Markdown"
 ---
 
-## The Ethos of Markdown
-
 There are a couple of things that make markdown stand out as a tool for authoring documents. The first is that it is plain text. The second is that separates document structure from document styling. This way, we focus on what we want to write, and when that is done, we provide styling or aesthetics.
 
-### Plain Text
+## Plain Text
 
 Plain text files are files that contain only text characters--no formatting, no images etc. Plain text also usually means that our text characters are encoded as ASCII or UTF-8. Using 0s and 1s, various combinations of these 0s and 1s represent certain characters according to these two standards. For example, the following byte `01001101` is ASCII coding for the letter `M`. ASCII has been around since the 1960s. ASCII can represent 128 characters. UTF-8 can represent many, many more characters, but is backwards compatible with ASCII. UTF-8 is the encoding used on the web.
 
@@ -18,7 +16,7 @@ If we were to try and open a Word document in a text editor, we\'d see something
 
 ![](images/word-in-text.png)
 
-### Structure vs Styling
+## Structure vs Styling
 
 When an authoring environment separates out structure from styling, it allows us to focus on each independently of the other, encouraging the writer to focus first and foremost on what they want to say and then subsequently on how this will be formatted.
 
@@ -58,9 +56,9 @@ Let\'s explore writing in Markdown...
 Back to the console
 
 ```bash
-open -a Atom 20210611_DHSI-Poster_Web-Materials.md # Mac
+open -a Atom yourFileName.md # Mac
 
-Atom 20210611_DHSI-Poster_Web-Materials.md # Windows
+Atom yourFileName.md # Windows
 ```
 
 Review a sample of what we'll create here: [https://csc-ubc-okanagan.github.io/DS-Introduction/academic-cv.html](https://csc-ubc-okanagan.github.io/DS-Introduction/academic-cv.html)
@@ -105,12 +103,6 @@ This is paragraph 2.
 There is generally support for six levels of headings, each demarcated by a series of hashtags, `#`.
 
 ```
-# First level header
-```
-
-# First level header
-
-```
 ## Second level header
 ```
 
@@ -121,6 +113,12 @@ There is generally support for six levels of headings, each demarcated by a seri
 ```
 
 ### Third level header
+
+```
+#### Fourth level header
+```
+
+#### Fourth level header
 
 etc...
 

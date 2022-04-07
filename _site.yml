@@ -14,5 +14,10 @@ output:
     theme: flatly
     highlight: textmate
     css: styles.css
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
     includes:
       after_body: footer.html

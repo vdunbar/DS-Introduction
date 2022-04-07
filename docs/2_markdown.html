@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -219,6 +222,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -226,6 +298,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -268,23 +350,20 @@ $(document).ready(function () {
 </div>
 
 
-<div id="the-ethos-of-markdown" class="section level2">
-<h2>The Ethos of Markdown</h2>
 <p>There are a couple of things that make markdown stand out as a tool for authoring documents. The first is that it is plain text. The second is that separates document structure from document styling. This way, we focus on what we want to write, and when that is done, we provide styling or aesthetics.</p>
-<div id="plain-text" class="section level3">
-<h3>Plain Text</h3>
+<div id="plain-text" class="section level2">
+<h2>Plain Text</h2>
 <p>Plain text files are files that contain only text characters–no formatting, no images etc. Plain text also usually means that our text characters are encoded as ASCII or UTF-8. Using 0s and 1s, various combinations of these 0s and 1s represent certain characters according to these two standards. For example, the following byte <code>01001101</code> is ASCII coding for the letter <code>M</code>. ASCII has been around since the 1960s. ASCII can represent 128 characters. UTF-8 can represent many, many more characters, but is backwards compatible with ASCII. UTF-8 is the encoding used on the web.</p>
 <p>As ASCII is a kind of benchmark, this in effect means that any ASCII plain text file can be opened by any text editing program on any computer on any operating system. Even if that file was written 40 years ago. Or will need to be opened in another 20 years.</p>
 <p>This is quite different from say a document written in Microsoft Word, which only renders perfectly in Word and only in versions of Word that support that particular document's formatting. This kind of rot, or inability to access content, has plagued authors for decades, especially when there was a lot more competition among word processors.</p>
 <p>If we were to try and open a Word document in a text editor, we'd see something like this</p>
 <p><img src="images/word-in-text.png" /></p>
 </div>
-<div id="structure-vs-styling" class="section level3">
-<h3>Structure vs Styling</h3>
+<div id="structure-vs-styling" class="section level2">
+<h2>Structure vs Styling</h2>
 <p>When an authoring environment separates out structure from styling, it allows us to focus on each independently of the other, encouraging the writer to focus first and foremost on what they want to say and then subsequently on how this will be formatted.</p>
 <p>Editors like Microsoft Word of LibreOffice wed these together so that styling - fonts, colours, spacing around elements, page breaks etc - are part of the writing process.</p>
 <p>Markdown encourages the writer to think only about document structure and prose while writing - that is, should this be a heading, subheading, list, table etc - and to look at how these elements are formatted once writing is complete - 1st level headers should 16pt Helvetica bold, tables should span the full width of the page, list items should be preceded by bullets not dashes etc.</p>
-</div>
 </div>
 <div id="how-markdown-works" class="section level2">
 <h2>How Markdown Works</h2>
@@ -344,18 +423,19 @@ This is paragraph 2.</code></pre>
 <div id="headings" class="section level3">
 <h3>Headings</h3>
 <p>There is generally support for six levels of headings, each demarcated by a series of hashtags, <code>#</code>.</p>
-<pre><code># First level header</code></pre>
-</div>
-</div>
-<div id="first-level-header" class="section level1">
-<h1>First level header</h1>
 <pre><code>## Second level header</code></pre>
+</div>
+</div>
 <div id="second-level-header" class="section level2">
 <h2>Second level header</h2>
 <pre><code>### Third level header</code></pre>
 <div id="third-level-header" class="section level3">
 <h3>Third level header</h3>
+<pre><code>#### Fourth level header</code></pre>
+<div id="fourth-level-header" class="section level4">
+<h4>Fourth level header</h4>
 <p>etc…</p>
+</div>
 </div>
 <div id="lists" class="section level3">
 <h3>Lists</h3>
@@ -420,17 +500,18 @@ This is paragraph 2.</code></pre>
 </table>
 </div>
 </div>
-</div>
 
 <div id="footer">
     <hr />
     <p>Built and rendered curtousy of <a href="https://rmarkdown.rstudio.com/index.html" target ="blank">RMarkdown from RStudio</a></p>
-    <p>View source on <a>GitHub</a></p>
+    <p>View source on <a href="https://github.com/vdunbar/ds-introduction">GitHub</a></p>
     <p>This website is part of a larger series of learning objects. <a>Visit the OSF page</a> for details.</p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -463,6 +544,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

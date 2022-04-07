@@ -85,7 +85,3 @@ By default the homepage for your newly published site will be the README file. T
 
 1. Rename your Markdown file to _index.md_. If an _index.md_ file is present GitHub Pages will always use it as the landing page.
 2. Add your filename to the end of the URL string, replacing _md_ with _html_. For example, if your file is called _myfile.md_ your new URL would end in _myfile.html_.
-
-## Create a QR code
-
-Visit <https://www.qrcode-monkey.com> to create a QR code with the URL of your published Markdown file, then copy the QR code into your poster.

@@ -17,7 +17,7 @@ Anyone who works with Advanced Research Computing and is asking for server space
 
 Additionally, when this operating system using shared resources is spun up, it will likely be a Linux distribution, like RedHat, CentOS, or Ubuntu. So having the skills to move around these systems is important.
 
-## Making this faster
+## Making things faster
 
 The command line isn\'t just useful for navigating a computer when we don\'t have a graphical, interactive view of what\'s going on. Whenever you find yourself doing something over and over with your mouse and you think \"there must be a faster way of doing this\", odds are there is. If what you\'re doing involves moving files around, joining files together, making the same small edit to a bunch of files etc, Unix and Linux command line tools can save you much time and many headaches.
 
@@ -144,7 +144,7 @@ Every directory should have a `README` file in it, so let\'s make one of those
 touch README.md
 ```
 
-### Retrieving remote files 2
+### Retrieving remote files
 
 In the next section, we\'ll be working with a Markdown template, so let's download that template.
 
