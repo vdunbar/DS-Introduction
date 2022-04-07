@@ -1,4 +1,4 @@
-.note, .question {
+.note, .highlight {
   padding: 10px;
   margin: 20px 0px;
   border-radius: 5px;
@@ -9,7 +9,7 @@
   background-color: #f0f7fd;
 }
 
-.question {
+.highlight {
   border: 1pt solid #1f7b0d;
   background-color: #f1fdf0;
 }

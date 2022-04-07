@@ -48,8 +48,7 @@ cd # change directories
 mkdir # make a new directory
 touch # create a file
 mv # move or rename a file
-cat # print out the contents of a file
-less # paginate through the outputs of cat
+rm # remove files - there is no trash!
 curl # access files on the web
 open # open a file
 ```
@@ -72,7 +71,9 @@ Get ourselves to the same place in our respective operating system
 cd ~/Desktop
 ```
 
-Note: the `~` returns your home directory. This is generally your user directory by default.
+<div class = "note">
+The `~` returns your home directory. This is generally your user directory by default.
+</div>
 
 Assuming you have some files sitting on your desktop, list those
 
@@ -80,7 +81,9 @@ Assuming you have some files sitting on your desktop, list those
 ls
 ```
 
-Note: all command line applications include `flags`. These provide access to additional options. They are pre-pended with a `-`.
+<div class = "note">
+All command line applications include `flags`. These provide access to additional options. They are pre-pended with a `-`.
+</div>
 
 List the files again, but with a bit more information using the `l`--for long format--flag.
 
@@ -99,15 +102,17 @@ ls -lh
 Create a new folder to work in on your Desktop (which is where we should all be at the moment.)
 
 ```bash
-mkdir 2022_DHSI-Conference
+mkdir 2022_DS-Workshop
 ```
 
-Note: Once you create this folder, open it beside your console window and you\'ll be able to see it updated as you work.
+<div class = "note">
+Once you create this folder, open it beside your console window and you\'ll be able to see it updated as you work.
+</div>
 
 Put yourself in that folder
 
 ```bash
-cd 2022_DHSI-Conference
+cd 2022_DS-Workshop
 ```
 
 Create a new file that will ultimately become our webpage.
@@ -116,14 +121,19 @@ Create a new file that will ultimately become our webpage.
 touch myNewFile.md
 ```
 
+<div class = "highlight">
 **File Naming**
 
-Names should be meaningful, they should describe the project and the contents of the file. They should have a system for tracking through time, whether with revision numbers or dates--sometimes dates are more relevant, sometimes revision numbers are more relevant. When dates are used, they should be in the format **yyyymmdd**. They should contain no special characters, this includes spaces. Parts of file name--dates, affiliated project, description--should be joined with underscores `_`, while multiple terms within a part can be in `CamelBack` or separated with dashes `-`.
+* Names should be meaningful.
+* When dates are used, they should be in the format **yyyymmdd**. They should contain no special characters, this includes spaces. Parts of file name--dates, affiliated project, description--should be joined with underscores `_`, while multiple terms within a part can be in `CamelBack` or separated with dashes `-`.
+* One exception to this general guidance is that if your document is destined to live on the web, so that it gets indexed properly, you should also avoid underscores `_`.
+* A second exception to this general guidance is that if you\'re going to move files between Macs, Linux, and Windows, consider using only lower case characters.
+</div>
 
 File naming diatribe done, rename the file we just created to give it a meaningful name
 
 ```bash
-mv myNewFile.md 20220323_DHSI-Poster_Web-Materials.md
+mv myNewFile.md 20220427_DS-Workshop_Web-Materials.md
 ```
 
 Note: `mv` both moves files from one location to another and renames files, which is akin to moving.
@@ -136,15 +146,17 @@ touch README.md
 
 ### Retrieving remote files
 
-We still need to get our poster template from UBC IT.
+In the next section, we\'ll be working with a Markdown template, so let's download that template.
 
-`https://it.ubc.ca/sites/ubcit.ubc.ca/files/ubc_research_poster_template.ppt`
+url: `https://`
 
 ```bash
-curl https://it.ubc.ca/sites/ubcit.ubc.ca/files/ubc_research_poster_template.ppt -o 20220323_DHSI-Poster.ppt
+curl https:// -o 20220427_MD-Template_MVD.md
 ```
 
-Note: we use the `o`--for output--flag to name the file to put the download into.
+<div class = "note">
+We use the `o`--for output--flag to name the file to put the download into.
+</div>
 
 We now have the basics lined up; we can move around our computer without a mouse, and we\'ve created some placeholders documents for the content we\'re about to start building out.
 
@@ -161,9 +173,12 @@ We may well come upon a time when we need to move, delete, or rename a large num
 ```bash
 touch this.tmp that.tmp who.tmp why.tmp where.tmp what.tmp
 ```
+
+<div class = "highlight">
 **File Extensions**
 
 File extensions are simply another part of a file name that helps us and our operating system know what application it is that we expect to use to open a file. We can change file extensions and all we change is the file name, we don\'t change anything intrinsic about the file itself. `.tmp` is a common file extension used for plain text files that are temporary in nature and meant to be deleted frequently, or at least not held onto for any length of time.
+</div>
 
 Now, we might realize that we meant to put these in their own directory. Let\'s make that directory and move everything over, move ourselves over and then investigate things.
 
@@ -174,7 +189,9 @@ cd tmp
 ls
 ```
 
-Note: the `*` is a wildcard and tells `mv`, move anything that ends in `.tmp`
+<div class = "note">
+The `*` is a wildcard and tells `mv`, move anything that ends in `.tmp`
+</div>
 
 Not a huge time saver, but things get better. We really should have provided these files with a bit more context in their file names, like the project that they\'re affiliated with. We could rename each individually, or harness the power of the command line...
 
@@ -182,7 +199,7 @@ Not a huge time saver, but things get better. We really should have provided the
 # for every instance of a file that ends in .tmp;
 # do the following: rename that file so that is pre-pended by 'My-Research-Project'
 # stop doing things
-for i in *.tmp; do mv $i 20220323_DHSI-Poster_$i; done
+for i in *.tmp; do mv $i 20220427_DS-Workshop_$i; done
 ```
 
 We can also now bulk delete those files
@@ -198,6 +215,8 @@ cd ..
 rm -R tmp
 ```
 
-Note: Every folder has in it two place holders, one labeled `.` and the other labeled `..`. `.` refers to the current directory, while `..` refers to the directory one level up in the hierarchy. To see these listed, you can call `ls` with the `a` flag.
+<div class = "note">
+Every folder has in it two place holders, one labeled `.` and the other labeled `..`. `.` refers to the current directory, while `..` refers to the directory one level up in the hierarchy. To see these listed, you can call `ls` with the `a` flag.
+</div>
 
-Next, we look at Markdown...
+Next, [we look at Markdown...](2_markdown.html)

@@ -307,8 +307,7 @@ cd # change directories
 mkdir # make a new directory
 touch # create a file
 mv # move or rename a file
-cat # print out the contents of a file
-less # paginate through the outputs of cat
+rm # remove files - there is no trash!
 curl # access files on the web
 open # open a file</code></pre>
 </div>
@@ -321,10 +320,14 @@ open # open a file</code></pre>
 <pre class="bash"><code>pwd</code></pre>
 <p>Get ourselves to the same place in our respective operating system</p>
 <pre class="bash"><code>cd ~/Desktop</code></pre>
-<p>Note: the <code>~</code> returns your home directory. This is generally your user directory by default.</p>
+<div class="note">
+<p>The <code>~</code> returns your home directory. This is generally your user directory by default.</p>
+</div>
 <p>Assuming you have some files sitting on your desktop, list those</p>
 <pre class="bash"><code>ls</code></pre>
-<p>Note: all command line applications include <code>flags</code>. These provide access to additional options. They are pre-pended with a <code>-</code>.</p>
+<div class="note">
+<p>All command line applications include <code>flags</code>. These provide access to additional options. They are pre-pended with a <code>-</code>.</p>
+</div>
 <p>List the files again, but with a bit more information using the <code>l</code>–for long format–flag.</p>
 <pre class="bash"><code>ls -l</code></pre>
 <p>And just for fun, the <code>h</code>–for human readable–flag as well.</p>
@@ -333,26 +336,37 @@ open # open a file</code></pre>
 <div id="creating-new-files" class="section level3">
 <h3>Creating new files</h3>
 <p>Create a new folder to work in on your Desktop (which is where we should all be at the moment.)</p>
-<pre class="bash"><code>mkdir 2022_DHSI-Conference</code></pre>
-<p>Note: Once you create this folder, open it beside your console window and you'll be able to see it updated as you work.</p>
+<pre class="bash"><code>mkdir 2022_DS-Workshop</code></pre>
+<div class="note">
+<p>Once you create this folder, open it beside your console window and you'll be able to see it updated as you work.</p>
+</div>
 <p>Put yourself in that folder</p>
-<pre class="bash"><code>cd 2022_DHSI-Conference</code></pre>
+<pre class="bash"><code>cd 2022_DS-Workshop</code></pre>
 <p>Create a new file that will ultimately become our webpage.</p>
 <pre class="bash"><code>touch myNewFile.md</code></pre>
+<div class="highlight">
 <p><strong>File Naming</strong></p>
-<p>Names should be meaningful, they should describe the project and the contents of the file. They should have a system for tracking through time, whether with revision numbers or dates–sometimes dates are more relevant, sometimes revision numbers are more relevant. When dates are used, they should be in the format <strong>yyyymmdd</strong>. They should contain no special characters, this includes spaces. Parts of file name–dates, affiliated project, description–should be joined with underscores <code>_</code>, while multiple terms within a part can be in <code>CamelBack</code> or separated with dashes <code>-</code>.</p>
+<ul>
+<li>Names should be meaningful.</li>
+<li>When dates are used, they should be in the format <strong>yyyymmdd</strong>. They should contain no special characters, this includes spaces. Parts of file name–dates, affiliated project, description–should be joined with underscores <code>_</code>, while multiple terms within a part can be in <code>CamelBack</code> or separated with dashes <code>-</code>.</li>
+<li>One exception to this general guidance is that if your document is destined to live on the web, so that it gets indexed properly, you should also avoid underscores <code>_</code>.</li>
+<li>A second exception to this general guidance is that if you're going to move files between Macs, Linux, and Windows, consider using only lower case characters.</li>
+</ul>
+</div>
 <p>File naming diatribe done, rename the file we just created to give it a meaningful name</p>
-<pre class="bash"><code>mv myNewFile.md 20220323_DHSI-Poster_Web-Materials.md</code></pre>
+<pre class="bash"><code>mv myNewFile.md 20220427_DS-Workshop_Web-Materials.md</code></pre>
 <p>Note: <code>mv</code> both moves files from one location to another and renames files, which is akin to moving.</p>
 <p>Every directory should have a <code>README</code> file in it, so let's make one of those</p>
 <pre class="bash"><code>touch README.md</code></pre>
 </div>
 <div id="retrieving-remote-files" class="section level3">
 <h3>Retrieving remote files</h3>
-<p>We still need to get our poster template from UBC IT.</p>
-<p><code>https://it.ubc.ca/sites/ubcit.ubc.ca/files/ubc_research_poster_template.ppt</code></p>
-<pre class="bash"><code>curl https://it.ubc.ca/sites/ubcit.ubc.ca/files/ubc_research_poster_template.ppt -o 20220323_DHSI-Poster.ppt</code></pre>
-<p>Note: we use the <code>o</code>–for output–flag to name the file to put the download into.</p>
+<p>In the next section, we'll be working with a Markdown template, so let’s download that template.</p>
+<p>url: <code>https://</code></p>
+<pre class="bash"><code>curl https:// -o 20220427_MD-Template_MVD.md</code></pre>
+<div class="note">
+<p>We use the <code>o</code>–for output–flag to name the file to put the download into.</p>
+</div>
 <p>We now have the basics lined up; we can move around our computer without a mouse, and we've created some placeholders documents for the content we're about to start building out.</p>
 </div>
 </div>
@@ -366,26 +380,32 @@ open # open a file</code></pre>
 <h3>An example</h3>
 <p>We may well come upon a time when we need to move, delete, or rename a large number of files associated with a project. Let's touch down a list of a series of files:</p>
 <pre class="bash"><code>touch this.tmp that.tmp who.tmp why.tmp where.tmp what.tmp</code></pre>
+<div class="highlight">
 <p><strong>File Extensions</strong></p>
 <p>File extensions are simply another part of a file name that helps us and our operating system know what application it is that we expect to use to open a file. We can change file extensions and all we change is the file name, we don't change anything intrinsic about the file itself. <code>.tmp</code> is a common file extension used for plain text files that are temporary in nature and meant to be deleted frequently, or at least not held onto for any length of time.</p>
+</div>
 <p>Now, we might realize that we meant to put these in their own directory. Let's make that directory and move everything over, move ourselves over and then investigate things.</p>
 <pre class="bash"><code>mkdir tmp
 mv *.tmp tmp/
 cd tmp
 ls</code></pre>
-<p>Note: the <code>*</code> is a wildcard and tells <code>mv</code>, move anything that ends in <code>.tmp</code></p>
+<div class="note">
+<p>The <code>*</code> is a wildcard and tells <code>mv</code>, move anything that ends in <code>.tmp</code></p>
+</div>
 <p>Not a huge time saver, but things get better. We really should have provided these files with a bit more context in their file names, like the project that they're affiliated with. We could rename each individually, or harness the power of the command line…</p>
 <pre class="bash"><code># for every instance of a file that ends in .tmp;
 # do the following: rename that file so that is pre-pended by &#39;My-Research-Project&#39;
 # stop doing things
-for i in *.tmp; do mv $i 20220323_DHSI-Poster_$i; done</code></pre>
+for i in *.tmp; do mv $i 20220427_DS-Workshop_$i; done</code></pre>
 <p>We can also now bulk delete those files</p>
 <pre class="bash"><code>rm *.tmp</code></pre>
 <p>And do a final clean up, moving ourselves up one level and deleting our <code>tmp</code> folder</p>
 <pre class="bash"><code>cd ..
 rm -R tmp</code></pre>
-<p>Note: Every folder has in it two place holders, one labeled <code>.</code> and the other labeled <code>..</code>. <code>.</code> refers to the current directory, while <code>..</code> refers to the directory one level up in the hierarchy. To see these listed, you can call <code>ls</code> with the <code>a</code> flag.</p>
-<p>Next, we look at Markdown…</p>
+<div class="note">
+<p>Every folder has in it two place holders, one labeled <code>.</code> and the other labeled <code>..</code>. <code>.</code> refers to the current directory, while <code>..</code> refers to the directory one level up in the hierarchy. To see these listed, you can call <code>ls</code> with the <code>a</code> flag.</p>
+</div>
+<p>Next, <a href="2_markdown.html">we look at Markdown…</a></p>
 </div>
 </div>
 
